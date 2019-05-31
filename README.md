@@ -1,5 +1,5 @@
 # LatinSquareCSP
 #ConstraintSatisfactionProblem
 #backtracking
-$forwardchecking
+#forwardchecking
 Filling latin squares of various sizes using bactracking algorithm enhanced with a forwarf checking heuristic
