@@ -8,6 +8,7 @@ class LatinSquare:
         self.size = size
         self.length = size**2
         self.squares = np.zeros(size ** 2, int)
+        self.checked = np.zeros(size, int)
 
     def get_size(self):
         return self.size
@@ -40,14 +41,20 @@ class LatinSquare:
     def get_index(self, row, column):
         return row * self.size + column
 
-    def is_latin_valid(self, index):  # index should be -1 at start
+    @staticmethod
+    def is_latin_valid(square, index):
 
-        for i in range(self.length - 1):  # i = next index
-            rowToCompare = self.get_row(i)
-            columnToCompare = self.get_column(i)
+        for i in range(square.length - 1):  # i = next index
+            rowToCompare = square.get_row(i)
+            columnToCompare = square.get_column(i)
 
-            if self.get_row(index) == rowToCompare or self.get_column(index) == columnToCompare:
-                if self.squares[index] == self.squares[self.get_index(rowToCompare, columnToCompare)] and index is not i:
+            if square.get_row(index) == rowToCompare or square.get_column(index) == columnToCompare:
+                if square.squares[index] == square.squares[square.get_index(rowToCompare, columnToCompare)] and index is not i:
                     return False
-
         return True
+
+    def temp_change_value(self, val, index):
+        temp = LatinSquare(self.size)
+        temp.squares = [self.squares[i] for i in range(self.length)]
+        temp.squares[index] = val
+        return temp
