@@ -39,7 +39,8 @@ def backtracking_with_forward_checking(index, square):  # index should start wit
                 return True
     square.squares[index] = 0  # undo
 
-sq = ls.LatinSquare(9)
+
+sq = ls.LatinSquare(3)
 #backtracking(0, sq)
 backtracking_with_forward_checking(0, sq)
 sq.show_square_as_matrix()

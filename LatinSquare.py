@@ -20,7 +20,6 @@ class LatinSquare:
         print(self.squares)
 
     def show_square_as_matrix(self):
-        #print("\n\n************************")
         print("\n\n\nLATIN SQUARE:")
         for i in range(0, self.length, self.size):
             print("\n")
@@ -45,11 +44,11 @@ class LatinSquare:
     def is_latin_valid(square, index):
 
         for i in range(square.length - 1):  # i = next index
-            rowToCompare = square.get_row(i)
-            columnToCompare = square.get_column(i)
+            row_to_compare = square.get_row(i)
+            column_to_compare = square.get_column(i)
 
-            if square.get_row(index) == rowToCompare or square.get_column(index) == columnToCompare:
-                if square.squares[index] == square.squares[square.get_index(rowToCompare, columnToCompare)] and index is not i:
+            if square.get_row(index) == row_to_compare or square.get_column(index) == column_to_compare:
+                if square.squares[index] == square.squares[square.get_index(row_to_compare, column_to_compare)] and index is not i:
                     return False
         return True
 
