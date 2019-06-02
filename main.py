@@ -19,7 +19,7 @@ def backtracking(index, square):  # index should start with 0
 
 def backtracking_with_forward_checking(index, square):  # index should start with 0
     sq.show_square_as_matrix()
-    print("CHECKED: ", square.checked)
+    print(" CHECKED: ", square.checked)
     if index == square.length:  # the board is finished
         return True
     # try all possible values [1;n]
@@ -27,8 +27,7 @@ def backtracking_with_forward_checking(index, square):  # index should start wit
         if square.checked[i - 1] == 1:
             continue
         if square.is_latin_valid(square.temp_change_value(i, index), index):  # will the square be valid after change
-            blah = square.squares[index]
-            if blah != 0:  # if it is valid but the place was previously occupied
+            if square.squares[index] != 0:  # if it is valid but the place was previously occupied
                 square.checked[square.squares[index] - 1] = 0
             square.squares[index] = i  # if it is valid after change - do change
             if (index + 1) % square.size == 0:
@@ -41,7 +40,7 @@ def backtracking_with_forward_checking(index, square):  # index should start wit
 
 
 sq = ls.LatinSquare(3)
-#backtracking(0, sq)
+backtracking(0, sq)
 backtracking_with_forward_checking(0, sq)
 sq.show_square_as_matrix()
 
